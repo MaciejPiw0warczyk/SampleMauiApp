@@ -28,12 +28,17 @@
         <VerticalStackLayout VerticalOptions="End" HorizontalOptions="End" 
                                Margin="10" Spacing="5">
             <Button
-                Text="zapisz" TextColor="Snow" FontFamily="OpenSansSemibold"
+                Text="{x:Static m:FaSolid.FloppyDisk}" TextColor="Snow"
+                FontFamily="FASolid" FontSize="Large"
                 Command="{Binding SaveDataCommand}"
-                BackgroundColor="Red"/>
-                
+                BackgroundColor="Red"
+                CornerRadius="50" WidthRequest="50" HeightRequest="50"
+                />
+
+
             <Button
-                Text="+" TextColor="Snow" FontSize="Large" 
+                Text="{x:Static m:FaSolid.Plus}" TextColor="Snow"
+                FontFamily="FASolid" FontSize="Large" 
                 Command="{Binding AddTaskCommand}"
                 BackgroundColor="Red"
                 CornerRadius="50" WidthRequest="50" HeightRequest="50"/>

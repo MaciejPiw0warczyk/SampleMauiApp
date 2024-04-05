@@ -68,10 +68,10 @@ public class SampleDataService
         return result;
     }
 
-    public async Task<bool> SaveTasks(IEnumerable<SampleItem> tasks)
+    public async Task<SaveDataResult> SaveTasks(IEnumerable<SampleItem> tasks)
     {
         string serializedTasks = string.Empty;
-
+        
         foreach (var task in tasks)
         {
             serializedTasks += task.Title + ",";
@@ -85,8 +85,8 @@ public class SampleDataService
                 await sw.WriteAsync(serializedTasks);
             }
         }
-        catch { return false; }
+        catch(Exception e) { return new(e); }
 
-        return true;
+        return new();
     }
 }

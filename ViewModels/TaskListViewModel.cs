@@ -32,15 +32,15 @@ public partial class TaskListViewModel : BaseViewModel
     [RelayCommand]
     public async Task SaveDataAsync()
     {
-        var succes = await dataService.SaveTasks(Tasks);
-
-        if (succes)
+        var result = await dataService.SaveTasks(Tasks);
+        
+        if (result.IsSuccesfull)
         {
-            await Toast.Make("Zadania zapisano pomyślnie").Show();
+            await Toast.Make("Tasks Saved succesfully!").Show();
         }
         else
         {
-            await Toast.Make("Nie zapisano! Podczas zapisu napotkano problem").Show();
+            await Toast.Make($"Task not saved! Encoutered an error {result.Exception.Message}").Show();
         }
     }
 
