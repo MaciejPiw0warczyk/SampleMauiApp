@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:SampleApp.ViewModels"
+			 xmlns:m="clr-namespace:SampleApp.Models"
+             x:Class="SampleApp.Views.TaskListPage"
+             x:DataType="vm:TaskListViewModel"
+             Title="TaskListPage">
+    <Grid HorizontalOptions="FillAndExpand">        
+        <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefresingCommand}">
+            <CollectionView ItemsSource="{Binding Tasks}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="m:SampleItem">
+                        <Frame Margin="4" Padding="12"
+                               BackgroundColor="Gray">
+                            <VerticalStackLayout>
+                                <Entry Text="{Binding Title, Mode=TwoWay}" FontSize="Large" TextColor="Black" 
+                                       Placeholder="Title" PlaceholderColor="Black"/>
+                                <Entry Text="{Binding Description, Mode=TwoWay}" FontSize="Body" TextColor="Black" 
+                                       Placeholder="Description" PlaceholderColor="Black"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+        
+        <VerticalStackLayout VerticalOptions="End" HorizontalOptions="End" 
+                               Margin="10" Spacing="5">
+            <Button
+                Text="zapisz" TextColor="Snow" FontFamily="OpenSansSemibold"
+                Command="{Binding SaveDataCommand}"
+                BackgroundColor="Red"/>
+                
+            <Button
+                Text="+" TextColor="Snow" FontSize="Large" 
+                Command="{Binding AddTaskCommand}"
+                BackgroundColor="Red"
+                CornerRadius="50" WidthRequest="50" HeightRequest="50"/>
+            
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
