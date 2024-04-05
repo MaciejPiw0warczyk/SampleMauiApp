@@ -29,7 +29,7 @@ public class SampleDataService
 
     public async Task<IEnumerable<SampleItem>> GetTasks()
     {
-        await Task.Delay(1000);
+        await Task.Delay(600);
 
         List<SampleItem> result = [];
 

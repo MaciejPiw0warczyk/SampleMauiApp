@@ -8,7 +8,7 @@
              Title="TaskListPage">
     <Grid HorizontalOptions="FillAndExpand">        
         <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefresingCommand}">
-            <CollectionView ItemsSource="{Binding Tasks}">
+            <CollectionView ItemsSource="{Binding Tasks}" EmptyView="Pull down to load.">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="m:SampleItem">
                         <Frame Margin="4" Padding="12"
