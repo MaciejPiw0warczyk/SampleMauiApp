@@ -36,12 +36,11 @@
 
             <Button
                 Text="Login"
-                />
+                Command="{Binding GoToCommand}" CommandParameter="LogInPage"/>
 
             <Button
                 Text="Register"
-                Command="{Binding GoToCommand}" CommandParameter="SignUpPage"
-                />
+                Command="{Binding GoToCommand}" CommandParameter="SignUpPage"/>
         </VerticalStackLayout>
 	</ScrollView>
 </ContentPage>
