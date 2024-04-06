@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:signup="clr-namespace:SampleApp.Features.SignUp"
+             x:Class="SampleApp.Views.SignUpPage"
+             xmlns:vm="clr-namespace:SampleApp.ViewModels"
+			 xmlns:m="clr-namespace:SampleApp.Models"
+             x:DataType="vm:SignUpViewModel"
+             Title="SignUpPage">
+    <signup:SignUpFormView Margin="0,25,0,0" BindingContext="{Binding FormViewModel}"/>
+</ContentPage>

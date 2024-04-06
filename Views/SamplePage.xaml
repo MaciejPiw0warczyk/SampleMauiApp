@@ -34,6 +34,14 @@
 				Command="{Binding CounterClickedCommand}"
 				HorizontalOptions="Fill" />
 
-		</VerticalStackLayout>
+            <Button
+                Text="Login"
+                />
+
+            <Button
+                Text="Register"
+                Command="{Binding GoToCommand}" CommandParameter="SignUpPage"
+                />
+        </VerticalStackLayout>
 	</ScrollView>
 </ContentPage>

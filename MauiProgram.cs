@@ -1,4 +1,7 @@
-﻿namespace SampleApp;
+﻿using Firebase.Auth;
+using Firebase.Auth.Providers;
+using SampleApp.Features.SignUp;
+namespace SampleApp;
 
 public static class MauiProgram
 {
@@ -33,6 +36,20 @@ public static class MauiProgram
 		builder.Services.AddSingleton<ListDetailViewModel>();
 
 		builder.Services.AddSingleton<ListDetailPage>();
+
+        builder.Services.AddTransient<SignUpViewModel>();
+        builder.Services.AddTransient<SignUpPage>();
+
+        builder.Services.AddTransient<SignUpFormView>();
+        builder.Services.AddTransient<SignUpFormViewModel>();
+
+        //firebase stuff
+
+        builder.Services.AddSingleton(new FirebaseAuthClient(new FirebaseAuthConfig(){
+            ApiKey= "AIzaSyCXvi1BwChMn3U41FpEgUKTdH0jel5F0Q8",
+            AuthDomain= "sampleapp-1dd2a.firebaseapp.com",
+            Providers = [new EmailProvider()]
+        }));
 
 		return builder.Build();
 	}
